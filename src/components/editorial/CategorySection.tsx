@@ -43,16 +43,18 @@ export function CategorySection({ category, posts }: CategorySectionProps) {
       </div>
 
       {/* Grid: 1 Principal + Secundárias */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-        <div className="lg:col-span-7 flex">
-          <NewsCard post={mainPost} variant="standard" className="w-full h-full" />
+      <div className={`grid grid-cols-1 ${secondaryPosts.length > 0 ? "lg:grid-cols-12 gap-6 items-start" : ""}`}>
+        <div className={secondaryPosts.length > 0 ? "lg:col-span-7" : "w-full"}>
+          <NewsCard post={mainPost} variant="standard" />
         </div>
 
-        <div className="lg:col-span-5 bg-white border border-stone p-5 sm:p-6 flex flex-col justify-between divide-y divide-stone/50">
-          {secondaryPosts.map((post) => (
-            <NewsCard key={post.id} post={post} variant="compact" />
-          ))}
-        </div>
+        {secondaryPosts.length > 0 && (
+          <div className="lg:col-span-5 bg-white border border-stone p-5 sm:p-6 divide-y divide-stone/40">
+            {secondaryPosts.map((post) => (
+              <NewsCard key={post.id} post={post} variant="compact" />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

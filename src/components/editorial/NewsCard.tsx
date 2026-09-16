@@ -132,8 +132,8 @@ export function NewsCard({
   // 3. Variante COMPACT (Para laterais, listas secundárias de destaque)
   if (variant === "compact") {
     return (
-      <article className={cn("group flex gap-4 py-4 border-b border-stone/60 first:pt-0 last:border-b-0", className)}>
-        {showImage && (
+      <article className={cn("group flex gap-4 py-3.5 first:pt-0 last:pb-0", className)}>
+        {showImage && post.featured_image?.url && (
           <Link href={`/noticias/${post.slug}`} className="relative w-24 h-20 sm:w-28 sm:h-24 overflow-hidden bg-ivory shrink-0 border border-stone block">
             <Image
               src={post.featured_image.url}
@@ -144,7 +144,7 @@ export function NewsCard({
             />
           </Link>
         )}
-        <div className="space-y-1.5 flex-1 flex flex-col justify-between">
+        <div className="space-y-1 flex-1 flex flex-col justify-between">
           <div className="space-y-1">
             <Link href={`/categoria/${post.category.slug}`} className="text-[10px] font-mono text-gold uppercase tracking-wider font-bold block">
               {post.category.name}
@@ -155,7 +155,7 @@ export function NewsCard({
               </h4>
             </Link>
           </div>
-          <div className="flex items-center gap-2 font-mono text-[10px] text-stone-dark">
+          <div className="flex items-center gap-2 font-mono text-[10px] text-stone-dark pt-1">
             <time dateTime={post.published_at}>{formatShortDate(post.published_at)}</time>
             <span>•</span>
             <span>{post.reading_time_minutes} min de leitura</span>

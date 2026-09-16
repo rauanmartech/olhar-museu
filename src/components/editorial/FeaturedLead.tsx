@@ -39,7 +39,7 @@ export function FeaturedLead({ leadPost, secondaryPosts }: FeaturedLeadProps) {
             <span className="text-[10px] font-mono text-stone-dark">ouro preto</span>
           </div>
 
-          <div className="divide-y divide-stone/50">
+          <div className="divide-y divide-stone/40">
             {secondaryPosts.map((post) => (
               <NewsCard key={post.id} post={post} variant="compact" />
             ))}
