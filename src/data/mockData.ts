@@ -154,6 +154,42 @@ export const mockMuseums: Museum[] = [
     image_url: "/images/museus/museu-da-farmacia/capa.webp",
     active: true,
   },
+  {
+    id: "mus-9",
+    name: "Mina DuVeloso",
+    slug: "mina-duveloso",
+    description: "Exploracao historica das galerias de mineracao do periodo colonial em Ouro Preto.",
+    address: "Ouro Preto - MG",
+    image_url: "/images/museus/mina-duveloso/capa.webp",
+    active: true,
+  },
+  {
+    id: "mus-10",
+    name: "Ecomuseu da Serra de Ouro Preto",
+    slug: "ecomuseu-da-serra-de-ouro-preto",
+    description: "Museu a ceu aberto que integra patrimonio natural, cultural e memoria viva das comunidades da Serra.",
+    address: "Serra de Ouro Preto - MG",
+    image_url: "/images/museus/ecomuseu-da-serra/capa.webp",
+    active: true,
+  },
+  {
+    id: "mus-11",
+    name: "Museu Casa dos Inconfidentes",
+    slug: "museu-casa-dos-inconfidentes",
+    description: "Espaco dedicado a memoria e ao legado dos participantes da Inconfidencia Mineira.",
+    address: "Ouro Preto - MG",
+    image_url: "/images/museus/museu-casa-dos-inconfidentes/capa.webp",
+    active: true,
+  },
+  {
+    id: "mus-12",
+    name: "Museu do Cha",
+    slug: "museu-do-cha",
+    description: "Acervo singular sobre a historia e cultura do cha no Brasil, com pecas raras e documentos historicos.",
+    address: "Ouro Preto - MG",
+    image_url: "/images/museus/museu-do-cha/capa.webp",
+    active: true,
+  },
 ];
 
 export const mockTags: Tag[] = [

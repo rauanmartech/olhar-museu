@@ -44,7 +44,7 @@ export function Navbar() {
               "px-3 py-2 transition-colors duration-150 inline-block font-medium",
               pathname === "/"
                 ? "text-gold font-bold border-b-2 border-gold"
-                : "text-night hover:text-gold"
+                : "text-ivory/80 hover:text-gold"
             )}
           >
             Início
@@ -66,14 +66,14 @@ export function Navbar() {
               "px-3 py-2 transition-colors duration-150 inline-flex items-center gap-1 font-medium cursor-pointer",
               pathname.startsWith("/noticias") || pathname.startsWith("/categoria") || pathname.startsWith("/museus")
                 ? "text-gold font-bold border-b-2 border-gold"
-                : "text-night hover:text-gold"
+                : "text-ivory/80 hover:text-gold"
             )}
           >
             <span>Notícias</span>
             <ChevronDown
               className={cn(
                 "w-3.5 h-3.5 transition-transform duration-200",
-                isDropdownOpen ? "rotate-180 text-gold" : "text-stone-dark"
+                isDropdownOpen ? "rotate-180 text-gold" : "text-stone/50"
               )}
             />
           </button>
@@ -165,7 +165,7 @@ export function Navbar() {
                 "px-3 py-2 transition-colors duration-150 inline-block font-medium",
                 pathname === item.href
                   ? "text-gold font-bold border-b-2 border-gold"
-                  : "text-night hover:text-gold"
+                  : "text-ivory/80 hover:text-gold"
               )}
             >
               {item.label}

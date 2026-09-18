@@ -13,7 +13,7 @@ export function Footer() {
           <div className="lg:col-span-2 space-y-4">
             <div>
               <Image 
-                src="/images/olhar-museu-logo-completa-branca.webp" 
+                src="/images/logo-simop-branca.webp" 
                 alt="Olhar Museu" 
                 width={360} 
                 height={120} 
@@ -54,17 +54,17 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Coluna 3: Museus */}
+          {/* Coluna 3: Instituições — todas as 12 do banco */}
           <div className="space-y-3">
             <h4 className="font-mono text-xs font-bold text-gold uppercase tracking-wider pb-1 border-b border-stone-dark/40">
               Instituições
             </h4>
             <ul className="space-y-2 text-xs font-sans text-stone">
-              {mockMuseums.slice(0, 6).map((mus) => (
+              {mockMuseums.map((mus) => (
                 <li key={mus.id}>
                   <Link
                     href={`/museus/${mus.slug}`}
-                    className="hover:text-gold transition-colors block py-0.5 truncate"
+                    className="hover:text-gold transition-colors block py-0.5 leading-snug"
                   >
                     {mus.name}
                   </Link>
@@ -81,7 +81,7 @@ export function Footer() {
             <ul className="space-y-2 text-xs font-sans text-stone">
               <li>
                 <Link href="/quem-somos" className="hover:text-gold transition-colors block py-0.5">
-                  Quem Somos & Manifesto
+                  Quem Somos &amp; Manifesto
                 </Link>
               </li>
               <li>
@@ -103,13 +103,26 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bloco Inferior: Copyright e Informações */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-stone-dark">
-          <p>© 2026 Olhar Museu por SiMOP. Todos os direitos reservados.</p>
-          <div className="flex items-center gap-4 text-[11px]">
-            <span>Ouro Preto · Minas Gerais</span>
-            <span>•</span>
-            <span className="text-stone">Jornalismo Cultural & Patrimônio</span>
+        {/* Bloco Inferior: Copyright + Desenvolvedor */}
+        <div className="flex flex-col items-center sm:flex-row sm:justify-between gap-4 font-mono text-xs text-stone-dark pt-2">
+          <p className="text-center sm:text-left">© 2026 Olhar Museu por SiMOP. Todos os direitos reservados.</p>
+          <div className="flex flex-row items-center gap-2">
+            <span className="text-[10px] text-stone-dark uppercase tracking-widest">Desenvolvido por</span>
+            <a
+              href="https://www.origemdev.com.br"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="opacity-70 hover:opacity-100 transition-opacity"
+              aria-label="OrigemDev — desenvolvimento web"
+            >
+              <Image
+                src="/images/logo-completa-origem.webp"
+                alt="OrigemDev"
+                width={120}
+                height={36}
+                className="h-7 w-auto object-contain"
+              />
+            </a>
           </div>
         </div>
       </div>

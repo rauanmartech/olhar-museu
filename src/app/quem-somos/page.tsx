@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { Button } from "@/components/ui/Button";
-import { mockAuthors } from "@/data/mockData";
 import { 
   Sparkles, 
   Newspaper, 
@@ -125,42 +124,104 @@ export default function QuemSomosPage() {
         </p>
       </section>
 
-      {/* Seção: Equipe e Redação */}
-      <section id="equipe" className="space-y-6">
+      {/* Seção: Coordenação Executiva & Equipe Técnica */}
+      <section id="equipe" className="space-y-8">
         <div className="flex items-center gap-2 pb-2 border-b border-stone">
           <span className="w-2 h-4 bg-gold inline-block" />
           <h2 className="font-serif text-2xl font-bold text-night">
-            Conselho Editorial & Redação
+            Coordenação &amp; Equipe
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          {mockAuthors.map((author) => (
-            <div key={author.id} className="bg-white border border-stone p-6 text-center space-y-3">
-              {author.avatar_url && (
-                <div className="relative w-20 h-20 rounded-full overflow-hidden mx-auto border-2 border-gold bg-stone/40">
-                  <Image
-                    src={author.avatar_url}
-                    alt={author.name}
-                    fill
-                    sizes="80px"
-                    className="object-cover"
-                  />
-                </div>
-              )}
-              <div>
-                <h3 className="font-sans text-base font-bold text-night">{author.name}</h3>
-                <span className="font-mono text-[10px] text-gold uppercase tracking-wider block font-bold">
-                  {author.role === "EDITOR" ? "Editora Chefe" : "Repórter Especial"}
-                </span>
-              </div>
+        {/* Coordenação Executiva — layout lado a lado */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {/* Card: Ranielle de Figueiredo */}
+          <div className="bg-white border border-stone p-6 space-y-4 flex flex-col items-center text-center">
+            <div className="w-36 h-44 overflow-hidden border-2 border-stone/40 relative">
+              <Image
+                src="/images/ranielle-figueiredo.webp"
+                alt="Ranielle de Figueiredo"
+                fill
+                sizes="144px"
+                className="object-cover object-top"
+              />
+            </div>
+            <div className="space-y-2">
+              <span className="inline-block font-mono text-[10px] font-bold text-gold uppercase tracking-widest">
+                Coordenação Executiva
+              </span>
+              <h3 className="font-sans text-lg font-bold text-night">Ranielle de Figueiredo</h3>
+              <div className="w-8 h-px bg-stone/30 mx-auto" />
               <p className="text-xs text-blue-deep font-sans leading-relaxed">
-                {author.bio}
+                Representante do{" "}
+                <Link href="/museus/museu-de-ciencia-e-tecnica" className="font-bold text-night hover:text-gold transition-colors">
+                  Museu de Ciência e Técnica da Escola de Minas
+                </Link>{" "}
+                da Universidade Federal de Ouro Preto (UFOP).
               </p>
             </div>
-          ))}
+          </div>
+
+          {/* Card: Matheus Bernardes */}
+          <div className="bg-white border border-stone p-6 space-y-4 flex flex-col items-center text-center">
+            <div className="w-36 h-44 overflow-hidden border-2 border-stone/40 relative">
+              <Image
+                src="/images/matheus-bernardes.webp"
+                alt="Matheus Bernardes"
+                fill
+                sizes="144px"
+                className="object-cover object-top"
+              />
+            </div>
+            <div className="space-y-2">
+              <span className="inline-block font-mono text-[10px] font-bold text-gold uppercase tracking-widest">
+                Coordenação Executiva
+              </span>
+              <h3 className="font-sans text-lg font-bold text-night">Matheus Bernardes</h3>
+              <div className="w-8 h-px bg-stone/30 mx-auto" />
+              <p className="text-xs text-blue-deep font-sans leading-relaxed">
+                Representante do{" "}
+                <Link href="/museus/museu-casa-dos-contos" className="font-bold text-night hover:text-gold transition-colors">
+                  Museu Casa dos Contos
+                </Link>
+                .
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Equipe Técnica — layout horizontal */}
+        <div className="space-y-4">
+          {/* Card: Stella Ker — sem card no mobile, com card no desktop */}
+          <div className="flex flex-row gap-4 items-start sm:bg-white sm:border sm:border-stone sm:p-6 sm:gap-6">
+            <div className="flex-shrink-0 w-20 h-20 sm:w-36 sm:h-36 overflow-hidden border border-stone/30 sm:border-2 sm:border-stone/40 relative">
+              <Image
+                src="/images/stella-ker.webp"
+                alt="Stella Ker"
+                fill
+                sizes="(max-width: 640px) 80px, 144px"
+                className="object-cover object-center"
+              />
+            </div>
+            <div className="space-y-1.5 sm:space-y-3 flex-1">
+              <div className="flex items-center gap-2">
+                <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-gold" />
+                <span className="inline-block font-mono text-[9px] sm:text-[10px] font-bold text-gold uppercase tracking-widest border border-gold/40 px-1.5 py-0.5 sm:px-2">
+                  Equipe Técnica
+                </span>
+              </div>
+              <h3 className="font-sans text-base sm:text-lg font-bold text-night">Stella Ker</h3>
+              <p className="font-mono text-[10px] sm:text-[11px] font-bold text-gold uppercase tracking-wide leading-snug">
+                Monitora do Sistema de Museus de Ouro Preto (SiMOP)
+              </p>
+              <p className="text-xs text-blue-deep font-sans leading-relaxed">
+                Atua no suporte e acompanhamento técnico das atividades do Sistema, contribuindo com a articulação de projetos, atendimento aos museus associados e apoio executivo aos planos de ação do SiMOP.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
+
 
       {/* CTA para Leitura */}
       <div className="pt-8 text-center space-y-4 border-t border-stone">

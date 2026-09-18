@@ -139,7 +139,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         <div className="p-6 border-b border-[#2C2C2C] bg-[#141414]">
           <Link href="/admin" className="block group">
             <Image
-              src="/images/olhar-museu-logo-completa-branca.webp"
+              src="/images/logo-simop-branca.webp"
               alt="Olhar Museu"
               width={220}
               height={70}
@@ -237,7 +237,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       <div className="lg:hidden bg-[#171717] border-b border-[#2C2C2C] p-4 flex items-center justify-between sticky top-0 z-30">
         <Link href="/admin" className="flex items-center gap-2">
           <Image
-            src="/images/olhar-museu-logo-completa-branca.webp"
+            src="/images/logo-simop-branca.webp"
             alt="Olhar Museu"
             width={160}
             height={50}

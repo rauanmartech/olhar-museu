@@ -34,15 +34,12 @@ export function MobileNav({ isOpen, onClose, onOpenSearch }: MobileNavProps) {
           <div className="flex items-center justify-between pb-4 border-b border-stone">
             <div>
               <Image 
-                src="/images/olhar-museu-logo-completa.webp" 
+                src="/images/logo-simop-preta.webp" 
                 alt="Olhar Museu" 
                 width={180} 
                 height={60} 
                 className="h-8 w-auto object-contain"
               />
-              <span className="block text-[10px] font-mono text-gold uppercase tracking-widest">
-                por SiMOP
-              </span>
             </div>
             <button
               onClick={onClose}

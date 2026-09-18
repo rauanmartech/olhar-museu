@@ -93,7 +93,7 @@ function LoginFormContent() {
           <div className="text-center space-y-4 mb-8">
             <div className="flex justify-center">
               <Image
-                src="/images/olhar-museu-logo-completa-branca.webp"
+                src="/images/logo-simop-branca.webp"
                 alt="Olhar Museu"
                 width={260}
                 height={80}
