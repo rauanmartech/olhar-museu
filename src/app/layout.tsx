@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     siteName: "Olhar Museu por SiMOP",
   },
   icons: {
-    icon: "/favicon.svg",
+    icon: "/favicon.ico",
   },
 };
 
