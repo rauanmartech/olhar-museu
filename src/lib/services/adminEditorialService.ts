@@ -517,12 +517,21 @@ export class AdminEditorialService {
         .from("museums")
         .select(`
           *,
-          featured_image:media(id, filename, path, bucket)
+          featured_image:media(id, filename, path, bucket, alt_text, mime_type, size_bytes, original_name, caption, uploaded_by, created_at, updated_at)
         `)
         .order("name", { ascending: true });
 
       if (error) return [];
-      return data || [];
+
+      return (data || []).map((m: any) => {
+        if (m.featured_image) {
+          const { data: urlData } = supabase.storage
+            .from(m.featured_image.bucket || "olhar-museu")
+            .getPublicUrl(m.featured_image.path);
+          m.featured_image.public_url = urlData?.publicUrl || "";
+        }
+        return m;
+      });
     } catch {
       return [];
     }

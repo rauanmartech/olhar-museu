@@ -105,7 +105,7 @@ export const mockMuseums: Museum[] = [
     description: "Coleção ímpar de oratórios brasileiros dos séculos XVII ao XX no adro da Igreja do Carmo.",
     address: "Adro da Igreja de N. Sra. do Carmo, 28 - Centro Histórico",
     website: "https://oratorio.com.br",
-    image_url: "/images/museus/museu-do-oratorio/capa.webp",
+    image_url: "/images/museus/museu-do-oratorio/fachada.webp",
     active: true,
   },
   {
@@ -160,7 +160,7 @@ export const mockMuseums: Museum[] = [
     slug: "mina-duveloso",
     description: "Exploracao historica das galerias de mineracao do periodo colonial em Ouro Preto.",
     address: "Ouro Preto - MG",
-    image_url: "/images/museus/mina-duveloso/capa.webp",
+    image_url: "/images/museus/mina-du-veloso/capa.webp",
     active: true,
   },
   {
@@ -169,7 +169,7 @@ export const mockMuseums: Museum[] = [
     slug: "ecomuseu-da-serra-de-ouro-preto",
     description: "Museu a ceu aberto que integra patrimonio natural, cultural e memoria viva das comunidades da Serra.",
     address: "Serra de Ouro Preto - MG",
-    image_url: "/images/museus/ecomuseu-da-serra/capa.webp",
+    image_url: "/images/museus/ecomuseu-da-serra-de-ouro-preto/capa.webp",
     active: true,
   },
   {

@@ -58,14 +58,21 @@ export default async function MuseumPage({ params }: MuseumPageProps) {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
           {/* Foto do Museu */}
           <div className="md:col-span-4 relative aspect-[16/10] w-full overflow-hidden bg-ivory border border-stone">
-            <Image
-              src={museum.image_url}
-              alt={museum.name}
-              fill
-              priority
-              sizes="(max-width: 768px) 100vw, 33vw"
-              className="object-cover"
-            />
+            {museum.image_url ? (
+              <Image
+                src={museum.image_url}
+                alt={museum.name}
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover"
+              />
+            ) : (
+              <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-stone-dark bg-ivory">
+                <Landmark className="w-10 h-10 opacity-30" />
+                <span className="font-mono text-xs opacity-40">Sem imagem</span>
+              </div>
+            )}
           </div>
 
           {/* Dados e Descrição */}

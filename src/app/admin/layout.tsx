@@ -125,6 +125,12 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       icon: Landmark,
     },
     {
+      label: "Capas dos Museus",
+      href: "/admin/museus/capas",
+      icon: ImageIcon,
+      badge: "WebP",
+    },
+    {
       label: "Tags Editoriais",
       href: "/admin/tags",
       icon: Tags,
