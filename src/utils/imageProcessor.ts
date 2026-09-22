@@ -34,23 +34,20 @@ function loadImage(file: File): Promise<HTMLImageElement> {
 }
 
 /**
- * Calcula as dimensões de destino mantendo aspect ratio dentro de um envelope.
- * Nunca faz upscale.
+ * Calcula as dimensões de cover: escala a imagem para preencher
+ * completamente o envelope (sem barras pretas). O excesso é cortado
+ * ao centralizar no canvas.
  */
-function calcFitDimensions(
+function calcCoverDimensions(
   srcW: number,
   srcH: number,
-  maxW: number,
-  maxH: number
+  targetW: number,
+  targetH: number
 ): { w: number; h: number } {
-  if (srcW <= maxW && srcH <= maxH) {
-    // Imagem menor que o alvo — não faz upscale
-    return { w: srcW, h: srcH };
-  }
-
-  const scaleW = maxW / srcW;
-  const scaleH = maxH / srcH;
-  const scale = Math.min(scaleW, scaleH);
+  const scaleW = targetW / srcW;
+  const scaleH = targetH / srcH;
+  // Usa o maior scale para que a imagem cubra o canvas inteiro
+  const scale = Math.max(scaleW, scaleH);
 
   return {
     w: Math.round(srcW * scale),
@@ -74,7 +71,8 @@ export async function processMuseumCover(
 ): Promise<File> {
   const img = await loadImage(file);
 
-  const { w: drawW, h: drawH } = calcFitDimensions(
+  // Cover: escala para preencher o canvas inteiro, sem barras pretas
+  const { w: drawW, h: drawH } = calcCoverDimensions(
     img.naturalWidth,
     img.naturalHeight,
     TARGET_WIDTH,
@@ -91,11 +89,7 @@ export async function processMuseumCover(
     throw new Error("Canvas 2D não disponível neste ambiente.");
   }
 
-  // Fundo preto (letterbox)
-  ctx.fillStyle = "#000000";
-  ctx.fillRect(0, 0, TARGET_WIDTH, TARGET_HEIGHT);
-
-  // Centraliza a imagem no canvas
+  // Centraliza e corta o excesso (cover crop)
   const offsetX = Math.round((TARGET_WIDTH - drawW) / 2);
   const offsetY = Math.round((TARGET_HEIGHT - drawH) / 2);
   ctx.drawImage(img, offsetX, offsetY, drawW, drawH);
